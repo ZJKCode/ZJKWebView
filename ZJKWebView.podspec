@@ -26,7 +26,7 @@ TODO: 因为组件化需要故实验此次方法
   #   'ZJKWebView' => ['ZJKWebView/Assets/*.png']
   # }
 
-  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'ZJKWebView/Classes/**/*.h'
   s.frameworks = 'UIKit', 'WebKit','Foundation'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
