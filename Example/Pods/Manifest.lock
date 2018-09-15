@@ -1,0 +1,16 @@
+PODS:
+  - ZJKWebView (0.1.0)
+
+DEPENDENCIES:
+  - ZJKWebView (from `../`)
+
+EXTERNAL SOURCES:
+  ZJKWebView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ZJKWebView: 334b3273645b36c92787373f7bf0ff570fdbe0a1
+
+PODFILE CHECKSUM: 3cd3639a23defd0598f97291fc7e9968f8bcfcb0
+
+COCOAPODS: 1.5.3

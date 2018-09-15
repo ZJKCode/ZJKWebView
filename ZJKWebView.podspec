@@ -9,26 +9,16 @@
 Pod::Spec.new do |s|
   s.name             = 'ZJKWebView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ZJKWebView.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.summary          = '一个很有缺的实现实验'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: 因为组件化需要故实验此次方法
                        DESC
 
-  s.homepage         = 'https://github.com/k721684713@163.com/ZJKWebView'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/sweetkk/ZJKWebView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'k721684713@163.com' => 'k721684713@163.com' }
-  s.source           = { :git => 'https://github.com/k721684713@163.com/ZJKWebView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
+  s.source           = { :git => 'https://github.com/sweetkk/ZJKWebView.git', :tag => s.version.to_s }
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'ZJKWebView/Classes/**/*'
   
@@ -36,7 +26,7 @@ TODO: Add long description of the pod here.
   #   'ZJKWebView' => ['ZJKWebView/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'WebKit','Foundation'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

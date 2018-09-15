@@ -1,0 +1,6 @@
+framework module ZJKWebView {
+  umbrella header "ZJKWebView-umbrella.h"
+
+  export *
+  module * { export * }
+}
