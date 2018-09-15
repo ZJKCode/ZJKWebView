@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ZJKWebView_Example' do
+  pod 'ZJKWebView', :path => '../'
+
+  target 'ZJKWebView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
