@@ -6,7 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class ZJKWebView;
+
+typedef BOOL(^ZJKShouldStartLoadWithRequestBlock)(NSURLRequest *request, NSInteger navigationType);
+typedef void(^ZJKWebViewDidStartLoadBlcok)(ZJKWebView *webView);
+typedef void(^ZJKWebViewDidFinishLoadBlock)(ZJKWebView *webView);
+typedef void(^ZJKWebViewDidFailLoadWithErrorBlock)(ZJKWebView * webView, NSError *error);
 
 @protocol ZJKWebViewDelegate <NSObject>
 @optional
@@ -28,8 +34,12 @@
 @property (weak, nonatomic) id<ZJKWebViewDelegate> delegate;
 @property (assign, nonatomic, readonly) BOOL isWebViewContent;
 @property (nonatomic) BOOL scalesPageToFit;
-
 @property (strong, readonly, nonatomic) NSURL *URL;
+- (instancetype)initWithFrame:(CGRect)frame
+              shouldStartLoad:(ZJKShouldStartLoadWithRequestBlock)shouldStartLoadWithRequestBlock
+                 didStartLoad:(ZJKWebViewDidStartLoadBlcok)startBlock
+                    didFinish:(ZJKWebViewDidFinishLoadBlock)finishBlock
+              didFailLoadWith:(ZJKWebViewDidFailLoadWithErrorBlock)errorBlock;
 
 - (void)loadRequest:(NSURLRequest *)request;
 - (void)loadHTMLString:(NSString *)string baseURL:( NSURL *)baseURL;

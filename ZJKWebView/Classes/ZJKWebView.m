@@ -35,6 +35,14 @@ const float CJQFinalProgressValue = 0.9f;
 @property (strong, nonatomic)CAShapeLayer * progressLayer;
 @property (assign, nonatomic)float progress;
 
+@property (nonatomic, copy) ZJKShouldStartLoadWithRequestBlock shouldStartLoadWithRequestBlock;
+
+@property (nonatomic, copy) ZJKWebViewDidStartLoadBlcok startLoadBlock;
+
+@property (nonatomic, copy) ZJKWebViewDidFinishLoadBlock finishBlock;
+
+@property (nonatomic, copy) ZJKWebViewDidFailLoadWithErrorBlock errorBlock;
+
 
 @end
 
@@ -45,6 +53,23 @@ const float CJQFinalProgressValue = 0.9f;
     BOOL _interactive;
 }
 @synthesize scalesPageToFit = _scalesPageToFit;
+
+- (instancetype)initWithFrame:(CGRect)frame
+              shouldStartLoad:(ZJKShouldStartLoadWithRequestBlock)shouldStartLoadWithRequestBlock
+                 didStartLoad:(ZJKWebViewDidStartLoadBlcok)startBlock
+                    didFinish:(ZJKWebViewDidFinishLoadBlock)finishBlock
+              didFailLoadWith:(ZJKWebViewDidFailLoadWithErrorBlock)errorBlock
+{
+    self = [super init];
+    if (self) {
+        _shouldStartLoadWithRequestBlock = shouldStartLoadWithRequestBlock;
+        _startLoadBlock = startBlock;
+        _finishBlock = finishBlock;
+        _errorBlock = errorBlock;
+        self = [self initWithFrame:frame];
+    }
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
