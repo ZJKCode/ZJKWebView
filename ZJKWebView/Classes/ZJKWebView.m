@@ -190,6 +190,7 @@ const float CJQFinalProgressValue = 0.9f;
 #pragma mark -UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+ 
     /** 如果URL的目录同已完成的路径，则执行加载完成 */
     if ([request.URL.path isEqualToString:completeRPCURLPath]) {
         [self completeProgress];
@@ -198,6 +199,9 @@ const float CJQFinalProgressValue = 0.9f;
     BOOL ret = YES;
     if ([self.delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
         ret = [self.delegate webView:self shouldStartLoadWithRequest:request navigationType:navigationType];
+    }
+    if (_shouldStartLoadWithRequestBlock){
+        return _shouldStartLoadWithRequestBlock(request, navigationType);
     }
     [self configUrlWithWebView:webView request:request withRet:ret];
     return ret;
